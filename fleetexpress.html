@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fleetexpress — Petrol &amp; Hybrid Private Hire Rentals, Derby</title>
+<meta name="description" content="Council-compliant petrol &amp; hybrid vehicle rentals for private-hire drivers across Derby, Wolverhampton &amp; Ashfield. Insurance, MOT and maintenance all handled in-house. Plus executive airport transfers.">
+<link rel="canonical" href="https://www.fleetexpress.co.uk/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.fleetexpress.co.uk/">
+<meta property="og:title" content="Fleetexpress — Petrol &amp; Hybrid Private Hire Rentals, Derby">
+<meta property="og:description" content="Council-compliant petrol &amp; hybrid vehicle rentals for private-hire drivers across Derby, Wolverhampton &amp; Ashfield. Insurance, MOT and maintenance included.">
+<meta property="og:image" content="https://www.fleetexpress.co.uk/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fleetexpress — Petrol &amp; Hybrid Private Hire Rentals, Derby">
+<meta name="twitter:description" content="Council-compliant petrol &amp; hybrid vehicle rentals for private-hire drivers across Derby, Wolverhampton &amp; Ashfield.">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=2000&q=80">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Fleetexpress",
+  "description":"Petrol & hybrid private hire vehicle rentals and executive airport transfers based in Derby.",
+  "telephone":"+447448203332",
+  "email":"info@fleetexpress.co.uk",
+  "address":{"@type":"PostalAddress","streetAddress":"Unit 5, Example Business Park","addressLocality":"Derby","postalCode":"DE1 2AB","addressCountry":"GB"},
+  "openingHours":"Mo-Sa 08:00-18:00",
+  "areaServed":["Derby","Wolverhampton","Ashfield"],
+  "priceRange":"££"
+}
+</script>
+<style>
+/* ── Tokens ───────────────────────────────────────── */
+:root{
+  --ink:#04112A;
+  --navy:#0C2858;
+  --navy-deep:#081E44;
+  --royal:#1848A4;
+  --sky:#4278CC;
+  --accent:#0FA85E;
+  --accent-hov:#0C9152;
+  --accent-soft:#E0F5EC;
+  --paper:#FFFFFF;
+  --ice:#EDF3FB;
+  --ice2:#DDE8F6;
+  --line:#CFDAEE;
+  --slate:#2B3A55;
+  --muted:#546480;
+  --wa:#25D366;
+  --wa-hov:#1EBE5A;
+  --font-sans:'Inter',system-ui,sans-serif;
+  --font-serif:'Fraunces',Georgia,serif;
+  --shadow-soft:0 1px 3px rgba(12,40,88,.07),0 10px 28px -16px rgba(12,40,88,.22);
+  --shadow-lift:0 24px 52px -18px rgba(12,40,88,.32);
+  --r:1rem;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--paper);color:var(--slate);-webkit-font-smoothing:antialiased;font-feature-settings:"ss01";line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+input,select,textarea{font-family:inherit;font-size:1rem}
+ul{list-style:none}
+
+.wrap{max-width:88rem;margin-inline:auto;padding-inline:1.5rem}
+.pad{padding-block:6rem}
+
+/* ── Section heading (no numbers) ─────────────────── */
+.sh{padding-bottom:1rem;margin-bottom:3.5rem;position:relative}
+.sh::after{content:"";display:block;width:3rem;height:3px;background:var(--accent);border-radius:2px;margin-top:1rem}
+.sh--light::after{background:rgba(255,255,255,.45)}
+.sh h2{font-family:var(--font-serif);font-size:clamp(2rem,5vw,3.25rem);font-weight:600;color:var(--navy);line-height:1.1}
+.sh--light h2{color:#fff}
+.sh .intro{font-size:.9375rem;color:var(--muted);max-width:34rem;margin-top:.75rem}
+.sh--light .intro{color:rgba(255,255,255,.6)}
+.sh-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem}
+
+/* ── Buttons ──────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;border-radius:.5rem;transition:background .2s,color .2s,border-color .2s;cursor:pointer;border:none;font-family:var(--font-sans)}
+.btn-navy{background:var(--navy);color:#fff;padding:.6rem 1.25rem;font-size:.875rem}
+.btn-navy:hover{background:var(--royal)}
+.btn-wa{background:var(--wa);color:#fff;padding:.6rem 1.25rem;font-size:.875rem}
+.btn-wa:hover{background:var(--wa-hov)}
+.btn-accent{background:var(--accent);color:#fff;padding:1rem 2rem;font-size:1rem}
+.btn-accent:hover{background:var(--accent-hov)}
+.btn-ghost{border:1px solid rgba(255,255,255,.38);color:#fff;padding:1rem 2rem;font-size:1rem}
+.btn-ghost:hover{background:#fff;color:var(--navy)}
+.btn-sm-accent{background:var(--accent);color:#fff;padding:.6rem 1.25rem;font-size:.875rem;font-weight:600;border-radius:.5rem;transition:background .2s;display:inline-flex;align-items:center;gap:.4rem}
+.btn-sm-accent:hover{background:var(--accent-hov)}
+.btn-sm-ghost{border:1px solid rgba(255,255,255,.28);color:#fff;padding:.6rem 1.25rem;font-size:.875rem;font-weight:600;border-radius:.5rem;transition:background .2s;display:inline-flex;align-items:center}
+.btn-sm-ghost:hover{background:rgba(255,255,255,.1)}
+
+/* ── Media overlay ────────────────────────────────── */
+.media{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--royal))}
+.media img{width:100%;height:100%;object-fit:cover;filter:saturate(.84) contrast(1.06) brightness(.96)}
+.media::after{content:"";position:absolute;inset:0;background:rgba(8,30,68,.18);mix-blend-mode:multiply;pointer-events:none}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+.ul-link{background-image:linear-gradient(var(--accent),var(--accent));background-size:0 2px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .3s}
+.ul-link:hover{background-size:100% 2px}
+
+/* ══ NAV ═══════════════════════════════════════════ */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo-wrap{display:flex;flex-direction:column;line-height:1;gap:.2rem}
+.nav-logo{font-family:var(--font-serif);font-size:1.625rem;font-weight:600;color:var(--navy);letter-spacing:-.02em}
+.nav-logo span{color:var(--accent)}
+.nav-tagline{font-size:.5625rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.nav-links{display:none;gap:2rem}
+.nav-links a{font-size:.9375rem;color:rgba(43,58,85,.72);transition:color .2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-actions{display:flex;align-items:center;gap:.75rem}
+.nav-phone{display:none;font-size:.875rem;font-weight:600;color:var(--navy)}
+.nav-burger{padding:.25rem;color:var(--navy);display:flex}
+.nav-mobile{display:none;flex-direction:column;gap:.75rem;padding:1rem 1.5rem;border-top:1px solid var(--line);background:var(--paper)}
+.nav-mobile.open{display:flex}
+.nav-mobile a{font-size:.9375rem;color:rgba(43,58,85,.8);padding-block:.25rem}
+/* WhatsApp icon in nav */
+.wa-icon{width:16px;height:16px;flex-shrink:0}
+@media(min-width:1024px){.nav-links{display:flex}.nav-phone{display:block}.nav-burger{display:none}}
+
+/* ══ HERO ══════════════════════════════════════════ */
+.hero{position:relative;min-height:720px;display:flex;align-items:center}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) contrast(1.08) brightness(.88)}
+/* Richer, more premium overlay — deeper on left, subtle vignette */
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(105deg,rgba(4,10,26,.97) 0%,rgba(6,18,50,.88) 38%,rgba(10,30,76,.52) 68%,rgba(12,40,88,.12) 100%),
+    linear-gradient(0deg,rgba(4,10,26,.65) 0%,rgba(4,10,26,0) 55%)
+}
+/* Subtle noise/grain texture for depth */
+.hero-overlay::before{
+  content:"";position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.028;mix-blend-mode:overlay;pointer-events:none
+}
+.hero-content{position:relative;z-index:2;color:#fff;padding-block:7rem;width:100%}
+/* Thin top rule — premium touch */
+.hero-rule{display:flex;align-items:center;gap:.75rem;margin-bottom:2rem}
+.hero-rule-line{width:2.5rem;height:1px;background:var(--accent)}
+.hero-rule-text{font-size:.6875rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.hero-title{
+  font-family:var(--font-serif);
+  font-size:clamp(2.5rem,6vw,4.5rem);
+  font-weight:600;
+  line-height:1.04;
+  max-width:38rem;
+  letter-spacing:-.01em;
+}
+.hero-title em{font-style:normal;color:var(--accent)}
+.hero-sub{
+  color:rgba(255,255,255,.72);
+  font-size:1.0625rem;
+  margin-top:1.5rem;
+  max-width:34rem;
+  line-height:1.75;
+  font-weight:400
+}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.5rem}
+/* Stats — cleaner, more spaced */
+.hero-stats{
+  display:flex;gap:0;
+  max-width:30rem;
+  margin-top:4rem;
+  border-top:1px solid rgba(255,255,255,.14)
+}
+.hero-stat{padding:1.125rem 2rem 1.125rem 0;flex:1}
+.hero-stat+.hero-stat{padding-left:2rem;border-left:1px solid rgba(255,255,255,.14)}
+.hero-stat-num{font-family:var(--font-serif);font-size:2rem;font-weight:600;line-height:1}
+.hero-stat-label{font-size:.625rem;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,.45);margin-top:.375rem}
+
+/* ══ MARQUEE ════════════════════════════════════════ */
+.marquee-wrap{border-bottom:1px solid var(--line);overflow:hidden;padding-block:.875rem;background:#fff}
+.marquee-track{display:flex;gap:3rem;white-space:nowrap;animation:mscroll 40s linear infinite}
+.marquee-track span{font-size:.75rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+.marquee-track .dot{color:var(--accent)}
+@keyframes mscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* ══ FLEET ════════════════════════════════════════════ */
+.fleet-grid{display:grid;gap:2rem}
+@media(min-width:768px){.fleet-grid{grid-template-columns:repeat(3,1fr)}}
+.fleet-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-soft);transition:box-shadow .3s,transform .3s}
+.fleet-card:hover{box-shadow:var(--shadow-lift);transform:translateY(-4px)}
+.fleet-card-media{position:relative;height:14rem;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--royal))}
+.fleet-card-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.84) contrast(1.06) brightness(.96)}
+.fleet-card-media::after{content:"";position:absolute;inset:0;background:rgba(8,30,68,.12);mix-blend-mode:multiply;pointer-events:none}
+.fleet-tag{position:absolute;top:1rem;left:1rem;z-index:1;font-size:.6875rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.375rem .75rem;border-radius:.375rem}
+.tag-hybrid{background:#fff;color:var(--navy)}
+.tag-petrol{background:var(--slate);color:#fff}
+.tag-minibus{background:var(--ink);color:#fff}
+.fleet-body{padding:1.75rem}
+.fleet-title{font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);font-weight:600;margin-bottom:.5rem}
+.fleet-blurb{font-size:.875rem;color:var(--muted);line-height:1.65;margin-bottom:1.25rem}
+.fleet-points{font-size:.875rem;color:rgba(43,58,85,.85);display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem}
+.fleet-points li{display:flex;gap:.5rem}
+.fleet-points .chk{color:var(--accent);flex-shrink:0;margin-top:2px}
+.fleet-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:1.25rem}
+.fleet-price{font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);font-weight:600}
+.fleet-price span{font-family:var(--font-sans);font-size:.875rem;color:var(--muted);font-weight:400}
+
+/* ══ HANDLED ════════════════════════════════════════ */
+.handled{background:var(--ice);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.handled-intro{max-width:38rem;margin-bottom:3.5rem}
+.eyebrow{font-size:.75rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--royal);margin-bottom:1rem}
+.handled-title{font-family:var(--font-serif);font-size:clamp(1.75rem,3.5vw,2.625rem);font-weight:600;color:var(--navy);line-height:1.2}
+.handled-sub{color:var(--muted);font-size:.9375rem;margin-top:1rem}
+.handled-grid{display:grid;gap:1.5rem}
+@media(min-width:768px){.handled-grid{grid-template-columns:repeat(3,1fr)}}
+.handled-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:2rem;box-shadow:var(--shadow-soft)}
+.handled-num{width:2.75rem;height:2.75rem;border-radius:.75rem;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.0625rem;font-weight:600;margin-bottom:1.25rem}
+.handled-card h3{font-family:var(--font-serif);font-size:1.25rem;color:var(--navy);font-weight:600;margin-bottom:.5rem}
+.handled-card p{font-size:.9375rem;color:var(--muted);line-height:1.65}
+
+/* ══ PASSENGERS ════════════════════════════════════ */
+.passengers{background:var(--navy);color:#fff}
+.pass-grid{display:grid;gap:3.5rem;align-items:center}
+@media(min-width:1024px){.pass-grid{grid-template-columns:1fr 1fr}}
+.pass-img{border-radius:var(--r);height:20rem}
+@media(min-width:1024px){.pass-img{height:28.75rem}}
+.pass-rows{display:flex;flex-direction:column;gap:2.25rem}
+.pass-row{padding-left:1.5rem;border-left:2px solid rgba(255,255,255,.18)}
+.pass-row--hl{border-left-color:var(--accent)}
+.pass-row h3{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;margin-bottom:.5rem}
+.pass-row p{color:rgba(255,255,255,.62);font-size:.9375rem;line-height:1.65}
+.pass-quote{margin-top:4rem;max-width:38rem}
+.pass-quote blockquote p{font-family:var(--font-serif);font-size:1.5rem;line-height:1.6;color:rgba(255,255,255,.86)}
+.pass-quote cite{font-size:.875rem;color:rgba(255,255,255,.45);font-style:normal;margin-top:.75rem;display:block}
+
+/* ══ PORTAL ═══════════════════════════════════════ */
+.portal{background:var(--ice2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.portal-banner{background:var(--accent-soft);border:1px solid rgba(15,168,94,.22);color:#0C7644;font-size:.875rem;border-radius:.75rem;padding:.75rem 1.25rem;margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;max-width:48rem}
+.portal-banner-tag{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.25rem .5rem;border-radius:.25rem;white-space:nowrap}
+.portal-signin{display:grid;gap:3rem;align-items:center}
+@media(min-width:1024px){.portal-signin{grid-template-columns:1fr 1fr}}
+.portal-copy h3{font-family:var(--font-serif);font-size:1.875rem;color:var(--navy);font-weight:600;margin-bottom:.75rem}
+.portal-copy p{color:var(--muted);font-size:.9375rem;line-height:1.65;margin-bottom:1.5rem;max-width:28rem}
+.portal-feats{font-size:.9375rem;color:rgba(43,58,85,.85);display:flex;flex-direction:column;gap:.5rem}
+.portal-feats li{display:flex;gap:.5rem}
+.portal-feats .chk{color:var(--accent)}
+.portal-form-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);padding:2rem;max-width:28rem;width:100%}
+@media(min-width:1024px){.portal-form-card{justify-self:end}}
+.ff{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.25rem}
+.ff label{font-size:.6875rem;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);font-weight:500}
+.ff input,.ff select,.ff textarea{width:100%;background:rgba(237,243,251,.6);border:1px solid var(--line);border-radius:.5rem;padding:.75rem 1rem;color:var(--navy);outline:none;transition:border-color .2s}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--royal)}
+.btn-full{width:100%;padding:.875rem;border-radius:.5rem;font-weight:600;font-size:1rem;background:var(--navy);color:#fff;transition:background .2s;border:none;cursor:pointer}
+.btn-full:hover{background:var(--royal)}
+.form-note{font-size:.75rem;color:var(--muted);text-align:center;margin-top:.75rem}
+.portal-dash{display:none;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);overflow:hidden}
+.portal-dash.on{display:block}
+.dash-head{background:var(--navy-deep);color:#fff;padding:1.5rem 2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
+.dash-head-meta{font-size:.6875rem;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.45)}
+.dash-head-meta .demo{color:var(--accent)}
+.dash-head h3{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;margin-top:.125rem}
+.dash-head-sub{font-size:.875rem;color:rgba(255,255,255,.55);margin-top:.25rem}
+.dash-acts{display:flex;gap:.75rem;flex-wrap:wrap}
+.dash-kpis{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.dash-kpi{padding:1.25rem 2rem}
+.dash-kpi+.dash-kpi{border-left:1px solid var(--line)}
+.dash-kpi-label{font-size:.6875rem;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+.dash-kpi-val{font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);font-weight:600;margin-top:.25rem}
+.dash-table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:32rem}
+thead th{text-align:left;font-size:.6875rem;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);font-weight:600;padding:.75rem 1.5rem;border-bottom:1px solid var(--line)}
+thead th.r{text-align:right}
+tbody tr{border-bottom:1px solid rgba(207,218,238,.55)}
+tbody tr:hover{background:rgba(237,243,251,.45)}
+tbody td{padding:.875rem 1.5rem}
+tbody td.navy{color:var(--navy);font-weight:500}
+tbody td.strong{text-align:right;color:var(--navy);font-weight:600}
+tbody td.dim{text-align:right;color:rgba(43,58,85,.58);padding-right:1.5rem}
+.pay-note{color:var(--muted)}
+.dash-foot{padding:1rem 1.5rem;font-size:.75rem;color:var(--muted);background:rgba(237,243,251,.5)}
+
+/* ══ FAQ ══════════════════════════════════════════ */
+.faq-bg{background:#fff}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:1.5rem;text-align:left;background:none;border:none}
+.faq-q{font-family:var(--font-serif);font-size:clamp(1.0625rem,2vw,1.25rem);color:var(--navy);font-weight:600}
+.faq-icon{color:var(--accent);font-size:1.5rem;line-height:1;transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-body{overflow:hidden;max-height:0;transition:max-height .35s ease}
+.faq-body-inner{padding-bottom:1.5rem;font-size:.9375rem;color:var(--muted);line-height:1.72}
+
+/* ══ CONTACT ══════════════════════════════════════ */
+.contact{background:var(--ice);border-top:1px solid var(--line)}
+.contact-grid{display:grid;gap:4rem}
+@media(min-width:1024px){.contact-grid{grid-template-columns:1fr 1fr}}
+.contact-intro{font-size:1.0625rem;color:rgba(43,58,85,.78);line-height:1.72;margin-bottom:2.5rem;max-width:28rem}
+.contact-dl{display:flex;flex-direction:column;gap:1.25rem;font-size:.9375rem}
+.contact-row{display:flex;gap:1.5rem}
+.contact-dt{width:3.5rem;font-size:.6875rem;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);flex-shrink:0;padding-top:.125rem}
+.contact-dd{font-weight:600;color:var(--navy)}
+.contact-dd .sub{font-weight:400;color:var(--muted)}
+/* WhatsApp contact bar */
+.wa-contact{margin-top:2rem;display:inline-flex;align-items:center;gap:.625rem;background:var(--wa);color:#fff;font-weight:600;font-size:.9375rem;padding:.75rem 1.25rem;border-radius:.5rem;transition:background .2s}
+.wa-contact:hover{background:var(--wa-hov)}
+.contact-form{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);padding:2rem}
+.form-2{display:grid;gap:1.5rem}
+@media(min-width:640px){.form-2{grid-template-columns:1fr 1fr}}
+.contact-success{font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);text-align:center;padding-block:2.5rem;display:none}
+
+/* ══ FOOTER ═══════════════════════════════════════ */
+.footer{background:var(--navy-deep);color:rgba(255,255,255,.6)}
+.footer-grid{display:grid;gap:2.5rem;padding-block:3.5rem;font-size:.9375rem}
+@media(min-width:768px){.footer-grid{grid-template-columns:repeat(3,1fr)}}
+.footer-brand{font-family:var(--font-serif);font-size:1.25rem;color:#fff;font-weight:600;margin-bottom:.75rem}
+.footer-brand span{color:var(--accent)}
+.footer-nav{display:flex;flex-direction:column;gap:.625rem}
+.footer-nav a{transition:color .2s}
+.footer-nav a:hover{color:#fff}
+.footer-contact{display:flex;flex-direction:column;gap:.625rem;color:rgba(255,255,255,.52)}
+.footer-legal{border-top:1px solid rgba(255,255,255,.08);padding-block:1rem;text-align:center;font-size:.75rem;color:rgba(255,255,255,.35)}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+</style>
+</head>
+<body>
+
+<a href="#main" class="sr-only">Skip to main content</a>
+
+<!-- NAV -->
+<header class="nav" role="banner">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo-wrap" aria-label="Fleetexpress — Rent it, Fuel it, Drive it">
+      <span class="nav-logo">Fleetexpress<span>.</span></span>
+      <span class="nav-tagline">Rent it · Fuel it · Drive it</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#drivers">Driver Vehicle Hire</a></li>
+        <li><a href="#transfers">Airport &amp; Executive Transfers</a></li>
+        <li><a href="#portal">Driver Portal</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="tel:+447448203332" class="nav-phone">07448 203 332</a>
+      <a href="https://wa.me/447448203332?text=Hi%2C+I%27d+like+to+enquire+about+a+vehicle" class="btn btn-wa" target="_blank" rel="noopener noreferrer" aria-label="Enquire on WhatsApp">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enquire Now
+      </a>
+      <button class="nav-burger" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Toggle navigation">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile" id="mnav" aria-label="Mobile">
+    <a href="#drivers" class="mnav-link">Driver Vehicle Hire</a>
+    <a href="#transfers" class="mnav-link">Airport &amp; Executive Transfers</a>
+    <a href="#portal" class="mnav-link">Driver Portal</a>
+    <a href="#faq" class="mnav-link">FAQ</a>
+    <a href="#contact" class="mnav-link">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section id="top" aria-label="Introduction">
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=2000&q=80"
+         alt="Professional private hire vehicle on the road" class="hero-img" fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="wrap hero-content">
+      <div class="hero-rule" aria-hidden="true">
+        <span class="hero-rule-line"></span>
+        <span class="hero-rule-text">Derby · Wolverhampton · Ashfield</span>
+      </div>
+      <h1 class="hero-title">
+        Plated, insured,<br>
+        and earning by<br>
+        <em>Monday.</em>
+      </h1>
+      <p class="hero-sub">
+        A ready-to-drive private hire car, on the road this week. Toyota, Hyundai and executive saloons — your weekly rate covers insurance, MOT and every service. You bring the badge; we handle the rest.
+      </p>
+      <div class="hero-ctas">
+        <a href="#drivers" class="btn btn-accent">View Available Vehicles</a>
+        <a href="https://wa.me/447448203332?text=Hi%2C+I%27d+like+to+enquire+about+a+vehicle" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+          <svg style="width:18px;height:18px;flex-shrink:0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enquire on WhatsApp
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">200+</div><div class="hero-stat-label">Vehicles in fleet</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">60+</div><div class="hero-stat-label">mpg average</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">Council areas</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track" id="marquee"></div>
+</div>
+
+<!-- FLEET -->
+<section id="drivers" class="pad" style="background:#fff">
+  <div class="wrap reveal">
+    <div class="sh">
+      <div class="sh-row">
+        <h2>Driver Vehicle Hire</h2>
+        <p class="intro">Plated petrol and hybrid vehicles on simple weekly contracts. Drive for Uber, Bolt or local circuits from day one — we handle the paperwork.</p>
+      </div>
+    </div>
+    <div class="fleet-grid" id="fleet"></div>
+  </div>
+</section>
+
+<!-- HANDLED -->
+<section class="handled pad">
+  <div class="wrap reveal">
+    <div class="handled-intro">
+      <p class="eyebrow">Everything handled in-house</p>
+      <h2 class="handled-title">You drive. We take care of the rest.</h2>
+      <p class="handled-sub">No insurance to arrange, no MOTs to chase, no garage bills to juggle. It's all included and managed by Fleetexpress.</p>
+    </div>
+    <div class="handled-grid" id="handled"></div>
+  </div>
+</section>
+
+<!-- PASSENGERS -->
+<section id="transfers" class="passengers pad">
+  <div class="wrap reveal">
+    <div class="sh sh--light">
+      <div class="sh-row">
+        <h2>Airport &amp; Executive Transfers</h2>
+        <p class="intro">Pre-booked at a fixed price. Executive travel and group hire — reliability is the entire product.</p>
+      </div>
+    </div>
+    <div class="pass-grid">
+      <div class="media pass-img">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80"
+             alt="Aircraft wing at sunrise — airport transfers" loading="lazy">
+      </div>
+      <div>
+        <div class="pass-rows">
+          <div class="pass-row pass-row--hl">
+            <h3>Airport Transfers</h3>
+            <p>East Midlands, Birmingham, Manchester, Heathrow. Flight-tracked pickups, meet-and-greet, and drivers who arrive early as standard.</p>
+          </div>
+          <div class="pass-row">
+            <h3>Corporate Travel</h3>
+            <p>Monthly invoicing, priority booking and a consistent standard of vehicle and driver for businesses across Derbyshire.</p>
+          </div>
+          <div class="pass-row">
+            <h3>Event &amp; Group Minibus Hire</h3>
+            <p>Weddings, race days and team travel in 8-seat minibuses with a professional, DBS-checked driver behind the wheel.</p>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-accent" style="margin-top:2.5rem">Book a Transfer →</a>
+      </div>
+    </div>
+    <div class="pass-quote">
+      <blockquote>
+        <p>"Punctuality isn't a feature we advertise. It's the reason we exist."</p>
+        <cite>— Fleetexpress operations team</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- PORTAL -->
+<section id="portal" class="portal pad">
+  <div class="wrap reveal">
+    <div class="sh">
+      <h2>Driver Portal</h2>
+      <p class="intro">Check and print your payment history any time. Live accounts arrive with our upcoming database — sign in below to preview.</p>
+    </div>
+    <div class="portal-banner">
+      <span class="portal-banner-tag">Coming soon</span>
+      <span>Accounts will connect to our secure <strong>Supabase</strong> database. The screen below is a working preview using sample data.</span>
+    </div>
+    <div class="portal-signin" id="psignin">
+      <div class="portal-copy">
+        <h3>Sign in to your account</h3>
+        <p>View every payment you've made, see your outstanding balance at a glance, and print a statement for your records or your accountant.</p>
+        <ul class="portal-feats">
+          <li><span class="chk" aria-hidden="true">✓</span> Full payment &amp; deposit history</li>
+          <li><span class="chk" aria-hidden="true">✓</span> Live outstanding balance</li>
+          <li><span class="chk" aria-hidden="true">✓</span> One-click printable statement</li>
+        </ul>
+      </div>
+      <div class="portal-form-card">
+        <form id="pform">
+          <div class="ff">
+            <label for="p-email">Email or driver ref</label>
+            <input id="p-email" type="text" placeholder="demo@fleetexpress.co.uk" autocomplete="username">
+          </div>
+          <div class="ff">
+            <label for="p-pass">Password</label>
+            <input id="p-pass" type="password" placeholder="••••••••" autocomplete="current-password">
+          </div>
+          <button type="submit" class="btn-full">Sign in</button>
+          <p class="form-note">Demo preview — any details open the sample dashboard.<br>Real authentication ships with Supabase.</p>
+        </form>
+      </div>
+    </div>
+    <div class="portal-dash" id="pdash">
+      <div class="dash-head">
+        <div>
+          <div class="dash-head-meta">Signed in as <span class="demo">demo account</span></div>
+          <h3>A. Driver</h3>
+          <div class="dash-head-sub">Ref FX-1042 · Toyota Prius — DE21 ABC · Hybrid · £180/week</div>
+        </div>
+        <div class="dash-acts">
+          <button class="btn-sm-accent" id="btn-print">Print statement</button>
+          <button class="btn-sm-ghost" id="btn-signout">Sign out</button>
+        </div>
+      </div>
+      <div class="dash-kpis">
+        <div class="dash-kpi"><div class="dash-kpi-label">Outstanding</div><div class="dash-kpi-val">£0.00</div></div>
+        <div class="dash-kpi"><div class="dash-kpi-label">Weekly rate</div><div class="dash-kpi-val">£180.00</div></div>
+        <div class="dash-kpi"><div class="dash-kpi-label">Payments on record</div><div class="dash-kpi-val">6</div></div>
+      </div>
+      <div class="dash-table-wrap">
+        <table>
+          <thead><tr>
+            <th scope="col">Date</th>
+            <th scope="col">Method</th>
+            <th scope="col" class="r">Amount</th>
+            <th scope="col" class="r">Balance</th>
+          </tr></thead>
+          <tbody id="ptbody"></tbody>
+        </table>
+      </div>
+      <p class="dash-foot">Sample data shown for preview. Connect the Supabase database to display each driver's real records.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-bg pad">
+  <div class="wrap reveal" style="max-width:52rem;margin-inline:auto">
+    <div class="sh">
+      <h2>Frequently Asked Questions</h2>
+      <p class="intro">Everything you need to know before getting behind the wheel or booking a transfer.</p>
+    </div>
+    <div class="faq-list" id="faqlist"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact pad">
+  <div class="wrap reveal">
+    <div class="sh"><h2>Speak to Us</h2></div>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">One message, one same-day response. Whether you need a plated vehicle by Monday or a PA booking a 5am airport run — reach us directly on WhatsApp or fill in the form.</p>
+        <dl class="contact-dl">
+          <div class="contact-row">
+            <dt class="contact-dt">Phone</dt>
+            <dd class="contact-dd"><a href="tel:+447448203332">07448 203 332</a></dd>
+          </div>
+          <div class="contact-row">
+            <dt class="contact-dt">Email</dt>
+            <dd class="contact-dd"><a href="mailto:info@fleetexpress.co.uk">info@fleetexpress.co.uk</a></dd>
+          </div>
+          <div class="contact-row">
+            <dt class="contact-dt">Areas</dt>
+            <dd class="contact-dd">Derby · Wolverhampton · Ashfield</dd>
+          </div>
+          <div class="contact-row">
+            <dt class="contact-dt">Office</dt>
+            <dd class="contact-dd">Unit 5, Example Business Park, Derby DE1 2AB<br><span class="sub">Mon–Sat, 8am–6pm</span></dd>
+          </div>
+        </dl>
+        <a href="https://wa.me/447448203332?text=Hi%2C+I%27d+like+to+enquire+about+a+vehicle" class="wa-contact" target="_blank" rel="noopener noreferrer">
+          <svg style="width:20px;height:20px;flex-shrink:0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enquire on WhatsApp
+        </a>
+      </div>
+      <div class="contact-form">
+        <p class="contact-success" id="csuccess">Thank you — we'll be in touch today. ✓</p>
+        <form id="cform">
+          <div class="form-2">
+            <div class="ff"><label for="c-name">Name</label><input id="c-name" type="text" required autocomplete="name"></div>
+            <div class="ff"><label for="c-phone">Phone</label><input id="c-phone" type="tel" required autocomplete="tel"></div>
+          </div>
+          <div class="ff">
+            <label for="c-type">I am a</label>
+            <select id="c-type">
+              <option>Driver looking to rent</option>
+              <option>Customer looking to book</option>
+            </select>
+          </div>
+          <div class="ff"><label for="c-msg">Message</label><textarea id="c-msg" rows="3" style="resize:vertical"></textarea></div>
+          <button type="submit" class="btn btn-navy" style="padding:.875rem 3rem;font-size:1rem">Send Enquiry →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-brand">Fleetexpress<span>.</span></div>
+      <p style="color:rgba(255,255,255,.52)">Petrol &amp; hybrid private-hire vehicle rentals and executive transfers, proudly based in Derby.</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer-nav">
+        <li><a href="#drivers">Driver Vehicle Hire</a></li>
+        <li><a href="#transfers">Airport &amp; Executive Transfers</a></li>
+        <li><a href="#portal">Driver Portal</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="footer-contact">
+      <p><a href="tel:+447448203332" style="color:inherit">07448 203 332</a> · <a href="mailto:info@fleetexpress.co.uk" style="color:inherit">info@fleetexpress.co.uk</a></p>
+      <p>Unit 5, Example Business Park, Derby DE1 2AB</p>
+      <p style="font-size:.75rem;color:rgba(255,255,255,.35)">Licensed Private Hire Operator · Derby City, Wolverhampton &amp; Ashfield councils</p>
+    </div>
+  </div>
+  <div class="footer-legal">© 2026 Fleetexpress Ltd. Registered in England &amp; Wales.</div>
+</footer>
+
+<script>
+const FLEET=[
+  {tag:"Hybrid",cls:"tag-hybrid",title:"Hybrid Saloons",
+   img:"https://images.unsplash.com/photo-1617469767053-d3b523a0b982?auto=format&fit=crop&w=1200&q=80",
+   blurb:"Toyota Prius, Corolla and Hyundai Ioniq — the backbone of the fleet. 60+ mpg and comfortable through a ten-hour shift.",
+   points:["Plated for Derby, Wolverhampton &amp; Ashfield","Company insurance, MOT &amp; servicing included","Flexible weekly rates, no long tie-in"],
+   price:"£250"},
+  {tag:"Petrol",cls:"tag-petrol",title:"Petrol &amp; Diesel Saloons",
+   img:"https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=80",
+   blurb:"Skoda Octavia, VW Passat and Toyota Avensis. Spacious, reliable saloons for drivers who prefer a conventional engine.",
+   points:["Plated for Derby, Wolverhampton &amp; Ashfield","Company insurance, MOT &amp; servicing included","Flexible weekly rates, no long tie-in"],
+   price:"£260"},
+  {tag:"Executive",cls:"tag-minibus",title:"Executive Class",
+   img:"https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80",
+   blurb:"Mercedes E-Class, Lexus ES 300h and BMW. Premium vehicles for higher-earning airport and corporate work.",
+   points:["Plated &amp; presentation-ready","Company insurance, MOT &amp; servicing included","Ideal for executive transfer work"],
+   price:"£300"},
+];
+
+const HANDLED=[
+  {t:"Insurance, provided.",d:"Every vehicle is covered on the company's private-hire insurance policy — no need to arrange your own cover."},
+  {t:"MOT, carried out.",d:"MOTs are booked and completed by us, tracked and renewed before they expire so you never lose a day on the road."},
+  {t:"Maintenance, in-house.",d:"Servicing and repairs run through our own workshops — fast turnarounds, not dealer waiting lists."},
+];
+
+const FAQ=[
+  {q:"Which councils are your vehicles plated for?",a:"Our fleet is licensed and plated across Derby City, Wolverhampton and Ashfield, so you can work the circuits and platforms that suit you best."},
+  {q:"What's actually included in the weekly rate?",a:"The vehicle, the company's private-hire insurance, MOT and all routine maintenance and servicing. You provide your badge and licence — we handle the rest."},
+  {q:"What vehicles are in the fleet?",a:"Mostly hybrid Toyotas — Prius, Corolla and Auris — alongside Hyundai Ioniq. We also run petrol and diesel saloons such as the Skoda Octavia, VW Passat and Toyota Avensis, plus an executive tier of Mercedes E-Class, Lexus ES 300h and BMW for corporate and airport work."},
+  {q:"How quickly can I start driving?",a:"With your badge, licence and deposit in place, most drivers are in a plated vehicle and earning within the same week."},
+  {q:"Can I see my payment history?",a:"Yes — the Driver Portal lets you view and print your full payment history and statements. Live accounts arrive with our upcoming Supabase-backed system."},
+];
+
+const PAYMENTS=[
+  {date:"05 Jun 2026",method:"Card",amount:"£180.00",balance:"£0.00"},
+  {date:"29 May 2026",method:"Bank transfer",amount:"£180.00",balance:"£0.00"},
+  {date:"22 May 2026",method:"Card",amount:"£180.00",balance:"£0.00"},
+  {date:"15 May 2026",method:"Cash",amount:"£180.00",balance:"£0.00"},
+  {date:"08 May 2026",method:"Card",amount:"£180.00",balance:"£0.00"},
+  {date:"01 May 2026",method:"Card",amount:"£360.00",balance:"£0.00",note:"Incl. £180 deposit"},
+];
+
+/* ── Marquee ──────────────────────────────────────── */
+(()=>{
+  const items=["Fully Licensed Private Hire Operator","Derby City Council","Wolverhampton Council","Ashfield District Council","Insurance · MOT · Maintenance Included","Petrol &amp; Hybrid Fleet","In-House Garage Servicing"];
+  const seg=items.map(t=>`<span>${t}</span><span class="dot">·</span>`).join('');
+  document.getElementById('marquee').innerHTML=seg+seg;
+})();
+
+/* ── Fleet cards ──────────────────────────────────── */
+document.getElementById('fleet').innerHTML=FLEET.map(c=>`
+  <article class="fleet-card">
+    <div class="fleet-card-media">
+      <img src="${c.img}" alt="${c.title.replace(/&amp;/g,'&')}" loading="lazy" onerror="this.style.display='none'">
+      <span class="fleet-tag ${c.cls}">${c.tag}</span>
+    </div>
+    <div class="fleet-body">
+      <h3 class="fleet-title">${c.title}</h3>
+      <p class="fleet-blurb">${c.blurb}</p>
+      <ul class="fleet-points">${c.points.map(p=>`<li><span class="chk" aria-hidden="true">✓</span><span>${p}</span></li>`).join('')}</ul>
+      <div class="fleet-footer">
+        <div class="fleet-price">${c.price}<span> /week</span></div>
+        <a href="https://wa.me/447448203332?text=Hi%2C+I%27d+like+to+enquire+about+the+${encodeURIComponent(c.tag)}+vehicle" class="ul-link" style="font-size:.875rem;font-weight:600;color:var(--navy)" target="_blank" rel="noopener noreferrer">Check availability →</a>
+      </div>
+    </div>
+  </article>
+`).join('');
+
+/* ── Handled cards ────────────────────────────────── */
+document.getElementById('handled').innerHTML=HANDLED.map((h,i)=>`
+  <div class="handled-card">
+    <div class="handled-num" aria-hidden="true">${String(i+1).padStart(2,'0')}</div>
+    <h3>${h.t}</h3>
+    <p>${h.d}</p>
+  </div>
+`).join('');
+
+/* ── FAQ ──────────────────────────────────────────── */
+(()=>{
+  const list=document.getElementById('faqlist');
+  list.innerHTML=FAQ.map((f,i)=>`
+    <div class="faq-item" id="fi${i}">
+      <button class="faq-btn" aria-expanded="false" aria-controls="fb${i}" id="fbb${i}">
+        <span class="faq-q">${f.q}</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-body" id="fb${i}" role="region" aria-labelledby="fbb${i}">
+        <div class="faq-body-inner">${f.a}</div>
+      </div>
+    </div>
+  `).join('');
+  list.addEventListener('click',e=>{
+    const btn=e.target.closest('.faq-btn');
+    if(!btn)return;
+    const item=btn.closest('.faq-item');
+    const body=item.querySelector('.faq-body');
+    const inner=item.querySelector('.faq-body-inner');
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el=>{
+      el.classList.remove('open');
+      el.querySelector('.faq-body').style.maxHeight='0';
+      el.querySelector('.faq-btn').setAttribute('aria-expanded','false');
+    });
+    if(!wasOpen){
+      item.classList.add('open');
+      body.style.maxHeight=inner.scrollHeight+'px';
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+})();
+
+/* ── Nav ──────────────────────────────────────────── */
+(()=>{
+  const burger=document.getElementById('burger');
+  const mnav=document.getElementById('mnav');
+  burger.addEventListener('click',()=>{
+    const open=mnav.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+  });
+  mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    mnav.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+  }));
+})();
+
+/* ── Portal ───────────────────────────────────────── */
+(()=>{
+  const signin=document.getElementById('psignin');
+  const dash=document.getElementById('pdash');
+  document.getElementById('ptbody').innerHTML=PAYMENTS.map(p=>`
+    <tr>
+      <td class="navy">${p.date}</td>
+      <td>${p.method}${p.note?`<span class="pay-note"> · ${p.note}</span>`:''}</td>
+      <td class="strong">${p.amount}</td>
+      <td class="dim">${p.balance}</td>
+    </tr>
+  `).join('');
+  document.getElementById('pform').addEventListener('submit',e=>{
+    e.preventDefault();
+    signin.style.display='none';
+    dash.classList.add('on');
+  });
+  document.getElementById('btn-signout').addEventListener('click',()=>{
+    dash.classList.remove('on');
+    signin.style.display='';
+  });
+  document.getElementById('btn-print').addEventListener('click',()=>{
+    const rows=PAYMENTS.map(p=>`<tr><td>${p.date}</td><td>${p.method}${p.note?` (${p.note})`:''}</td><td style="text-align:right">${p.amount}</td><td style="text-align:right">${p.balance}</td></tr>`).join('');
+    const html=`<!doctype html><html><head><title>Statement — A. Driver</title>
+<style>body{font-family:Arial,sans-serif;color:#2B3A55;padding:40px;max-width:720px;margin:auto}
+h1{font-family:Georgia,serif;color:#0C2858;margin:0 0 2px}.m{color:#546480;font-size:13px}
+table{width:100%;border-collapse:collapse;margin-top:24px;font-size:14px}
+th{text-align:left;border-bottom:2px solid #0C2858;padding:8px 6px;color:#0C2858;text-transform:uppercase;letter-spacing:.08em;font-size:11px}
+td{padding:9px 6px;border-bottom:1px solid #DDE8F6}
+.hd{display:flex;justify-content:space-between;border-bottom:1px solid #DDE8F6;padding-bottom:16px}
+.br{font-family:Georgia,serif;font-size:22px;color:#0C2858;font-weight:600}</style></head>
+<body><div class="hd"><div><div class="br">Fleetexpress.</div><div class="m">Petrol &amp; hybrid private hire · Derby</div></div>
+<div style="text-align:right" class="m">Statement generated<br>${new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</div></div>
+<h1>A. Driver</h1><div class="m">Driver ref FX-1042 · Toyota Prius — DE21 ABC · Hybrid · £180/week</div>
+<table><thead><tr><th>Date</th><th>Method</th><th style="text-align:right">Amount</th><th style="text-align:right">Balance</th></tr></thead>
+<tbody>${rows}</tbody></table>
+<p class="m" style="margin-top:28px">Outstanding: <strong style="color:#0C2858">£0.00</strong>. Demo statement — sample data only.</p>
+</body></html>`;
+    const w=window.open('','_blank','width=820,height=920');
+    if(!w){alert('Allow pop-ups to print your statement.');return;}
+    w.document.write(html);w.document.close();w.focus();setTimeout(()=>w.print(),300);
+  });
+})();
+
+/* ── Contact form ─────────────────────────────────── */
+(()=>{
+  const form=document.getElementById('cform');
+  const success=document.getElementById('csuccess');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    form.style.display='none';
+    success.style.display='block';
+  });
+})();
+
+/* ── Scroll reveal ────────────────────────────────── */
+(()=>{
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+    return;
+  }
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
