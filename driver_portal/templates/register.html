@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Register — Fleetexpress Driver Portal{% endblock %}
+
+{% block content %}
+<div class="auth-wrap">
+  <div class="card auth-card">
+    <h1>Create your account</h1>
+    <p class="lead">
+      To verify your identity, enter your <strong>phone number</strong> or
+      <strong>National Insurance number</strong> — whichever the office has on file.
+    </p>
+
+    <form method="post" action="{{ url_for('register') }}" novalidate>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+      <div class="ff">
+        <label for="phone">Phone number</label>
+        <input id="phone" name="phone" type="tel" autofocus
+               autocomplete="tel" value="{{ phone or '' }}"
+               placeholder="07700 900123">
+      </div>
+
+      <div style="text-align:center;color:var(--muted);font-size:.8125rem;margin:-.25rem 0 1rem">— or —</div>
+
+      <div class="ff">
+        <label for="ni">National Insurance number</label>
+        <input id="ni" name="ni" type="text" value="{{ ni or '' }}"
+               placeholder="AB 12 34 56 C">
+        <span class="hint">Enter at least one of phone or NI number above.</span>
+      </div>
+
+      <div class="ff">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required
+               autocomplete="email" value="{{ email or '' }}"
+               placeholder="you@example.com">
+        <span class="hint">For contact only — you'll <strong>sign in with your phone or NI number</strong>, not your email.</span>
+      </div>
+
+      <div class="ff">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required
+               autocomplete="new-password" placeholder="At least 8 characters">
+      </div>
+
+      <div class="ff">
+        <label for="confirm">Confirm password</label>
+        <input id="confirm" name="confirm" type="password" required
+               autocomplete="new-password" placeholder="Re-enter your password">
+      </div>
+
+      <button type="submit" class="btn btn-navy btn-block">Register</button>
+    </form>
+
+    <p class="auth-foot">
+      Already registered? <a href="{{ url_for('login') }}">Sign in</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

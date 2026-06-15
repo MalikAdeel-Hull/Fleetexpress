@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+{% block title %}Your payment status — Fleetexpress{% endblock %}
+
+{% block content %}
+
+<div class="page-head">
+  <h1>Hello, {{ driver.full_name }}</h1>
+  <p class="sub">Here's where your rental account stands today.</p>
+</div>
+
+{% if not has_rental %}
+  <!-- ============ NO ACTIVE RENTAL ============ -->
+  <div class="callout callout-info">
+    You don't have an active rental on file right now. If you think this is a
+    mistake, please contact the office.
+  </div>
+{% else %}
+
+  <!-- ============ STATUS HERO ============ -->
+  <div class="card status-hero {{ 'is-paid' if is_paid else 'is-pending' }}">
+    <span class="status-pill {{ 'paid' if is_paid else 'pending' }}">
+      {{ 'PAID' if is_paid else 'PENDING' }}
+    </span>
+
+    {% if is_paid %}
+      <div class="hero-amount">{{ weekly_rate | gbp }}</div>
+      <p class="hero-caption">This week's rent is fully paid. Thank you!</p>
+      {% if owed < 0 %}
+        <p class="hero-credit">You're {{ (-owed) | gbp }} in credit.</p>
+      {% endif %}
+    {% else %}
+      <div class="hero-amount owed">{{ owed | gbp }}</div>
+      <p class="hero-caption">still owed for this week</p>
+    {% endif %}
+  </div>
+
+  <!-- ============ KEY FIGURES ============ -->
+  <div class="kpis">
+    <div class="kpi">
+      <div class="kpi-label">Weekly rent</div>
+      <div class="kpi-val">{{ weekly_rate | gbp }}</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Paid this week</div>
+      <div class="kpi-val good">{{ amount_paid_week | gbp }}</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Amount owed</div>
+      <div class="kpi-val {{ 'good' if is_paid else 'bad' }}">{{ (0 if owed < 0 else owed) | gbp }}</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Days left in rental</div>
+      <div class="kpi-val">
+        {% if days_remaining is none %}Open-ended{% else %}{{ days_remaining if days_remaining > 0 else 0 }}{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ RENTAL / VEHICLE DETAIL ============ -->
+  <div class="detail-grid">
+    <div class="card">
+      <div class="card-head">Your vehicle</div>
+      <div class="card-pad">
+        {% if vehicle %}
+        <div class="reg-plate">{{ vehicle.registration_number }}</div>
+        <dl class="detail-list">
+          <dt>Make / model</dt>
+          <dd>{{ vehicle.make }} {{ vehicle.model }}{{ ' (' ~ vehicle.year ~ ')' if vehicle.year else '' }}</dd>
+          <dt>Colour</dt>
+          <dd>{{ vehicle.colour or '—' }}</dd>
+          <dt>Council plate</dt>
+          <dd>{{ vehicle.council_plate_number or '—' }}</dd>
+        </dl>
+        {% else %}
+        <p style="color:var(--muted)">Vehicle details unavailable.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">This week &amp; next payment</div>
+      <div class="card-pad">
+        <dl class="detail-list">
+          <dt>Current week</dt>
+          <dd>{{ week_start | ukdate }} – {{ week_end | ukdate }}</dd>
+          <dt>Last payment</dt>
+          <dd>{{ last_payment_date | ukdate }}</dd>
+          <dt>Next rent due</dt>
+          <dd>{{ next_due_date | ukdate }}</dd>
+          <dt>Rental started</dt>
+          <dd>{{ hire_start | ukdate }}</dd>
+        </dl>
+        {% if days_until_due >= 0 %}
+          <div class="due-countdown">
+            {{ days_until_due }} day{{ '' if days_until_due == 1 else 's' }}
+            until the end of this rental week
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<!-- ============ PAYMENT HISTORY ============ -->
+<div class="card" style="margin-bottom:1.5rem">
+  <div class="card-head">
+    <span>Recent payments</span>
+    <div style="display:flex;gap:.5rem" class="no-print">
+      <a href="{{ url_for('history_csv') }}" class="btn btn-ghost btn-sm">Download CSV</a>
+      <button type="button" class="btn btn-ghost btn-sm" onclick="window.print()">Print</button>
+    </div>
+  </div>
+  {% if history %}
+  <div class="table-wrap">
+    <!-- Already sorted newest-first by the server -->
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col" class="r">Amount</th>
+          <th scope="col">Method</th>
+          <th scope="col">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in history %}
+        <tr>
+          <td class="navy">{{ p.date | ukdate }}</td>
+          <td class="strong">{{ p.amount | gbp }}</td>
+          <td>{{ p.method }}</td>
+          <td class="muted">{{ p.notes }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-row">No payments recorded yet.</div>
+  {% endif %}
+</div>
+
+<!-- ============ HELP: CONTACT + FAQ ============ -->
+<div class="help-grid no-print">
+  <div class="card">
+    <div class="card-head">Need help?</div>
+    <div class="card-pad">
+      <p style="margin-bottom:.75rem">Questions about your rent or a payment?</p>
+      <div class="help-actions">
+        <a class="btn btn-navy"
+           href="mailto:{{ admin_email }}?subject=Driver%20portal%20query%20-%20{{ driver.full_name }}">
+          Email the office
+        </a>
+        <a class="btn btn-ghost" href="tel:{{ admin_phone }}">Call {{ admin_phone }}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">FAQ</div>
+    <div class="card-pad" style="padding-block:.25rem">
+      <details class="faq-item">
+        <summary>How is "amount owed" worked out?</summary>
+        <div class="faq-body">
+          It's your weekly rent minus everything you've paid during the current
+          rental week. When it reaches £0 your status shows PAID.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>My payment isn't showing — what do I do?</summary>
+        <div class="faq-body">
+          Payments are entered by office staff and can take a little time to
+          appear. If it's still missing after a day, contact the office.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I change my password?</summary>
+        <div class="faq-body">
+          Password self-service isn't available yet — please contact the office
+          and we'll reset it for you.
+        </div>
+      </details>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

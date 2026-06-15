@@ -1,0 +1,36 @@
+# ── Python ─────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# ── Virtual environments (never commit — machine-specific & huge) ──
+venv/
+.venv/
+env/
+driver_portal/venv/
+
+# ── Secrets & local config (NEVER commit) ──────────────
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# ── Databases & runtime data (may contain driver PII) ──
+*.db
+*.sqlite
+*.sqlite3
+backups/
+assets/uploads/
+
+# ── Logs ───────────────────────────────────────────────
+*.log
+vrms_app.log
+vrms_startup.log
+
+# ── OS / editor cruft ──────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

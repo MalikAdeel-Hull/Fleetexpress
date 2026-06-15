@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Sign in — Fleetexpress Driver Portal{% endblock %}
+
+{% block content %}
+<div class="auth-wrap">
+  <div class="card auth-card">
+    <h1>Sign in to your account</h1>
+    <p class="lead">View every payment you've made, check your outstanding
+      balance and print a statement for your records.</p>
+
+    <!-- Drivers log in with the same identifier they registered with: their
+         phone number OR their National Insurance number (not email). -->
+    <form method="post" action="{{ url_for('login') }}{% if request.args.get('next') %}?next={{ request.args.get('next') }}{% endif %}" novalidate>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+      <div class="ff">
+        <label for="identifier">Phone or NI number</label>
+        <input id="identifier" name="identifier" type="text" required autofocus
+               autocomplete="username" value="{{ identifier or '' }}"
+               placeholder="07700 900123 or AB123456C">
+        <span class="hint">Use the same phone or NI number the office has on file.</span>
+      </div>
+
+      <div class="ff">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required
+               autocomplete="current-password" placeholder="••••••••">
+      </div>
+
+      <label class="check-row">
+        <input type="checkbox" name="remember"> Keep me signed in on this device
+      </label>
+
+      <button type="submit" class="btn btn-navy btn-block">Sign in</button>
+    </form>
+
+    <p class="auth-foot">
+      First time here? <a href="{{ url_for('register') }}">Register your account</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

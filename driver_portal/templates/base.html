@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- =========================================================================
+     Fleetexpress Driver Portal — base layout
+     Every page extends this. Self-contained (no Bootstrap); styled to match the
+     public marketing site (../index.html) via static/style.css.
+========================================================================== -->
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <!-- viewport meta = mobile responsiveness; drivers mostly check on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Fleetexpress — Driver Portal{% endblock %}</title>
+
+  <!-- Same type system as the marketing site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="portal-nav">
+    <div class="wrap portal-nav-inner">
+      <a class="portal-brand" href="{{ url_for('index') }}" aria-label="Fleetexpress Driver Portal">
+        <span class="logo">Fleetexpress<span>.</span></span>
+        <span class="tagline">Driver Portal</span>
+      </a>
+      <div class="portal-nav-actions">
+        {% if session.get('driver_id') %}
+          <span class="portal-nav-name">{{ driver_name }}</span>
+          <!-- Logout is a POST form so it carries the CSRF token and can't be
+               triggered by a stray link/GET. -->
+          <form action="{{ url_for('logout') }}" method="post" style="margin:0">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="btn btn-ghost btn-sm">Log out</button>
+          </form>
+        {% else %}
+          <a class="portal-nav-back" href="{{ site_url }}">&larr; Back to website</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== PAGE CONTENT ===================== -->
+  <main class="portal-main">
+    <div class="wrap">
+
+      <!-- Flash messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-stack">
+          {% for category, message in messages %}
+            <div class="flash flash-{{ category }}" role="alert">
+              <span>{{ message }}</span>
+              <button type="button" class="flash-close" aria-label="Dismiss"
+                      onclick="this.parentElement.remove()">&times;</button>
+            </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+
+  <footer class="portal-footer">
+    Fleetexpress &middot; Driver Portal &middot;
+    <a href="{{ site_url }}" style="color:var(--royal)">fleetexpress.co.uk</a>
+  </footer>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

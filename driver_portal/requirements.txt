@@ -1,0 +1,13 @@
+# VRMS Driver Portal — Python dependencies
+# Install with:  pip install -r requirements.txt
+
+Flask>=3.0,<4.0
+SQLAlchemy>=2.0,<3.0
+Werkzeug>=3.0,<4.0      # password hashing (generate/check_password_hash)
+
+# --- Database driver ---
+# SQLite needs nothing extra (built into Python). Uncomment for PostgreSQL:
+# psycopg2-binary>=2.9   # then set DATABASE_URL=postgresql+psycopg2://user:pass@host:5432/dbname
+
+# --- Production server (optional but recommended over the dev server) ---
+# waitress>=3.0          # Windows-friendly WSGI server:  waitress-serve --port=5000 app:app
