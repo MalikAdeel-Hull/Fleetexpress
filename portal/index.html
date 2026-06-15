@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- =========================================================================
+     Fleetexpress Driver Portal — STATIC CLIENT DEMO
+     A self-contained, browser-only preview of the driver portal: login screen
+     → dashboard with sample data. Runs anywhere (GitHub Pages, file://) with NO
+     server and NO database — purely for showing the client what the portal
+     looks like. The real, data-driven portal is the Flask app in /driver_portal.
+========================================================================== -->
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fleetexpress — Driver Portal (Preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0C2858;--navy-deep:#081E44;--royal:#1848A4;--accent:#0FA85E;--accent-hov:#0C9152;
+  --accent-soft:#E0F5EC;--paper:#fff;--ice:#EDF3FB;--ice2:#DDE8F6;--line:#CFDAEE;
+  --slate:#2B3A55;--muted:#546480;--danger:#C0392B;
+  --font-sans:'Inter',system-ui,sans-serif;--font-serif:'Fraunces',Georgia,serif;
+  --shadow-soft:0 1px 3px rgba(12,40,88,.07),0 10px 28px -16px rgba(12,40,88,.22);--r:1rem;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:var(--ice);color:var(--slate);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+input{font-family:inherit;font-size:1rem}
+ul{list-style:none}
+.wrap{max-width:64rem;margin-inline:auto;padding-inline:1.5rem;width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:600;border-radius:.5rem;font-size:.9375rem;padding:.7rem 1.4rem;transition:background .2s,color .2s,border-color .2s;border:1px solid transparent}
+.btn-navy{background:var(--navy);color:#fff}.btn-navy:hover{background:var(--royal)}
+.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{background:var(--accent-hov)}
+.btn-ghost{border-color:var(--line);color:var(--navy);background:#fff}.btn-ghost:hover{background:var(--ice)}
+.btn-sm{padding:.5rem 1rem;font-size:.8125rem}
+.btn-block{width:100%;padding:.9rem;font-size:1rem}
+
+/* nav */
+.pnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.pnav-in{height:64px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;flex-direction:column;line-height:1;gap:.18rem}
+.brand .logo{font-family:var(--font-serif);font-size:1.45rem;font-weight:600;color:var(--navy);letter-spacing:-.02em}
+.brand .logo span{color:var(--accent)}
+.brand .tag{font-size:.5625rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.pnav-act{display:flex;align-items:center;gap:1rem}
+.pnav-name{font-size:.875rem;font-weight:600;color:var(--navy);display:none}
+@media(min-width:560px){.pnav-name{display:inline}}
+.pnav-back{font-size:.875rem;color:var(--muted)}.pnav-back:hover{color:var(--navy)}
+
+main{flex:1;padding-block:2.5rem}
+
+/* preview ribbon */
+.preview-note{background:var(--accent-soft);border:1px solid rgba(15,168,94,.25);color:#0C7644;border-radius:.6rem;padding:.7rem 1.1rem;font-size:.875rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+.preview-tag{font-size:.625rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:#fff;padding:.2rem .5rem;border-radius:.25rem;white-space:nowrap}
+
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft)}
+.card-pad{padding:1.75rem}
+.card-head{padding:1rem 1.5rem;border-bottom:1px solid var(--line);font-weight:600;color:var(--navy);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem}
+
+/* login */
+.auth-wrap{max-width:30rem;margin-inline:auto}
+.auth-card{padding:2rem}
+.auth-card h1{font-family:var(--font-serif);font-size:1.75rem;font-weight:600;color:var(--navy);margin-bottom:.4rem}
+.auth-card .lead{color:var(--muted);font-size:.9375rem;margin-bottom:1.75rem}
+.ff{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.15rem}
+.ff label{font-size:.6875rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);font-weight:600}
+.ff input{width:100%;background:rgba(237,243,251,.6);border:1px solid var(--line);border-radius:.5rem;padding:.75rem 1rem;color:var(--navy);outline:none;transition:border-color .2s,background .2s}
+.ff input:focus{border-color:var(--royal);background:#fff}
+.form-note{font-size:.75rem;color:var(--muted);text-align:center;margin-top:1rem;line-height:1.5}
+
+/* dashboard */
+.page-head{margin-bottom:1.75rem}
+.page-head h1{font-family:var(--font-serif);font-size:clamp(1.6rem,4vw,2.25rem);font-weight:600;color:var(--navy);line-height:1.15}
+.page-head .sub{color:var(--muted);font-size:.9375rem;margin-top:.4rem}
+.status-hero{text-align:center;padding:2.25rem 1.5rem;border-top:5px solid var(--accent)}
+.status-pill{display:inline-block;padding:.35rem 1.3rem;border-radius:2rem;color:#fff;font-weight:700;letter-spacing:.12em;font-size:.8125rem;background:var(--accent)}
+.hero-amount{font-family:var(--font-serif);font-size:clamp(2.4rem,8vw,3.25rem);font-weight:600;line-height:1.1;margin-top:1rem;color:var(--navy)}
+.hero-caption{color:var(--muted);margin-top:.25rem}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-block:1.5rem}
+@media(min-width:768px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:.8rem;padding:1.25rem;box-shadow:var(--shadow-soft)}
+.kpi-label{font-size:.6875rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.kpi-val{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--navy);margin-top:.35rem}
+.kpi-val.good{color:var(--accent-hov)}
+.detail-grid{display:grid;gap:1rem;margin-bottom:1.5rem}
+@media(min-width:768px){.detail-grid{grid-template-columns:1fr 1fr}}
+.detail-list{display:grid;grid-template-columns:auto 1fr;gap:.5rem 1.25rem;font-size:.9375rem}
+.detail-list dt{color:var(--muted);font-weight:500}
+.detail-list dd{color:var(--navy);font-weight:600;text-align:right}
+.reg-plate{display:inline-block;background:#FFD400;color:#111;font-weight:800;letter-spacing:.06em;padding:.4rem .9rem;border-radius:.4rem;border:2px solid #111;font-size:1.25rem;margin-bottom:1rem}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:30rem}
+thead th{text-align:left;font-size:.6875rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:600;padding:.75rem 1.5rem;border-bottom:1px solid var(--line)}
+thead th.r{text-align:right}
+tbody tr{border-bottom:1px solid rgba(207,218,238,.55)}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:rgba(237,243,251,.45)}
+tbody td{padding:.85rem 1.5rem}
+tbody td.navy{color:var(--navy);font-weight:500}
+tbody td.strong{text-align:right;color:var(--navy);font-weight:600}
+tbody td.dim{text-align:right;color:var(--muted)}
+.dash-foot{padding:1rem 1.5rem;font-size:.75rem;color:var(--muted);background:rgba(237,243,251,.5);border-top:1px solid var(--line)}
+.hidden{display:none !important}
+.pfooter{text-align:center;color:var(--muted);font-size:.8125rem;padding:2rem 1rem;border-top:1px solid var(--line);background:#fff}
+</style>
+</head>
+<body>
+
+<header class="pnav">
+  <div class="wrap pnav-in">
+    <a class="brand" href="../index.html" aria-label="Fleetexpress Driver Portal">
+      <span class="logo">Fleetexpress<span>.</span></span>
+      <span class="tag">Driver Portal</span>
+    </a>
+    <div class="pnav-act">
+      <span class="pnav-name hidden" id="nav-name"></span>
+      <button class="btn btn-ghost btn-sm hidden" id="logout-btn">Log out</button>
+      <a class="pnav-back" id="back-link" href="../index.html">&larr; Back to website</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- ============ LOGIN VIEW ============ -->
+    <section id="login-view" class="auth-wrap">
+      <div class="card auth-card">
+        <h1>Sign in to your account</h1>
+        <p class="lead">View every payment you've made, check your outstanding
+          balance and print a statement for your records.</p>
+        <form id="login-form">
+          <div class="ff">
+            <label for="identifier">Phone or NI number</label>
+            <input id="identifier" type="text" autocomplete="username" placeholder="07700 900123 or AB123456C">
+          </div>
+          <div class="ff">
+            <label for="password">Password</label>
+            <input id="password" type="password" autocomplete="current-password" placeholder="••••••••">
+          </div>
+          <button type="submit" class="btn btn-navy btn-block">Sign in</button>
+          <p class="form-note"><strong>Preview:</strong> any details open the sample dashboard.<br>
+            The live portal verifies your phone/NI number against office records.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ DASHBOARD VIEW ============ -->
+    <section id="dash-view" class="hidden">
+      <div class="preview-note">
+        <span class="preview-tag">Preview</span>
+        <span>Sample data shown so you can see the layout. The live portal shows each driver's real records.</span>
+      </div>
+
+      <div class="page-head">
+        <h1>Hello, <span id="d-name">James Carter</span></h1>
+        <p class="sub">Here's where your rental account stands today.</p>
+      </div>
+
+      <div class="card status-hero">
+        <span class="status-pill">PAID</span>
+        <div class="hero-amount" id="d-rate">£180.00</div>
+        <p class="hero-caption">This week's rent is fully paid. Thank you!</p>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi"><div class="kpi-label">Weekly rent</div><div class="kpi-val">£180.00</div></div>
+        <div class="kpi"><div class="kpi-label">Paid this week</div><div class="kpi-val good">£180.00</div></div>
+        <div class="kpi"><div class="kpi-label">Outstanding</div><div class="kpi-val good">£0.00</div></div>
+        <div class="kpi"><div class="kpi-label">Payments on record</div><div class="kpi-val">6</div></div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="card">
+          <div class="card-head">Your vehicle</div>
+          <div class="card-pad">
+            <div class="reg-plate">DE21 ABC</div>
+            <dl class="detail-list">
+              <dt>Make / model</dt><dd>Toyota Prius (2021)</dd>
+              <dt>Colour</dt><dd>Silver</dd>
+              <dt>Type</dt><dd>Hybrid</dd>
+              <dt>Council plate</dt><dd>FX-1042</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">This week &amp; next payment</div>
+          <div class="card-pad">
+            <dl class="detail-list">
+              <dt>Current week</dt><dd>01 Jun – 07 Jun 2026</dd>
+              <dt>Last payment</dt><dd>05 Jun 2026</dd>
+              <dt>Next rent due</dt><dd>08 Jun 2026</dd>
+              <dt>Rental started</dt><dd>01 Feb 2026</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:1.5rem">
+        <div class="card-head">
+          <span>Recent payments</span>
+          <div style="display:flex;gap:.5rem">
+            <button class="btn btn-ghost btn-sm" id="print-btn">Print statement</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th scope="col">Date</th>
+              <th scope="col">Method</th>
+              <th scope="col" class="r">Amount</th>
+              <th scope="col" class="r">Balance</th>
+            </tr></thead>
+            <tbody id="pay-body"></tbody>
+          </table>
+        </div>
+        <div class="dash-foot">Sample data shown for preview. The live portal lists each driver's actual payments.</div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="pfooter">
+  Fleetexpress &middot; Driver Portal &middot; <a href="../index.html" style="color:var(--royal)">fleetexpress.co.uk</a>
+</footer>
+
+<script>
+/* ── Demo data ─────────────────────────────────────── */
+const DEMO={
+  name:"James Carter", ref:"FX-1042", vehicle:"Toyota Prius — DE21 ABC · Hybrid · £180/week",
+  payments:[
+    {date:"05 Jun 2026",method:"Card",amount:"£180.00",balance:"£0.00"},
+    {date:"29 May 2026",method:"Bank transfer",amount:"£180.00",balance:"£0.00"},
+    {date:"22 May 2026",method:"Card",amount:"£180.00",balance:"£0.00"},
+    {date:"15 May 2026",method:"Cash",amount:"£180.00",balance:"£0.00"},
+    {date:"08 May 2026",method:"Card",amount:"£180.00",balance:"£0.00"},
+    {date:"01 May 2026",method:"Card",amount:"£360.00",balance:"£0.00",note:"Incl. £180 deposit"},
+  ],
+};
+
+const $=id=>document.getElementById(id);
+
+/* Fill the payments table */
+$("pay-body").innerHTML=DEMO.payments.map(p=>`
+  <tr>
+    <td class="navy">${p.date}</td>
+    <td>${p.method}${p.note?` · ${p.note}`:''}</td>
+    <td class="strong">${p.amount}</td>
+    <td class="dim">${p.balance}</td>
+  </tr>`).join('');
+
+/* ── Login → dashboard ─────────────────────────────── */
+$("login-form").addEventListener("submit",e=>{
+  e.preventDefault();
+  $("login-view").classList.add("hidden");
+  $("dash-view").classList.remove("hidden");
+  $("nav-name").textContent=DEMO.name;
+  $("nav-name").classList.remove("hidden");
+  $("logout-btn").classList.remove("hidden");
+  $("back-link").classList.add("hidden");
+  window.scrollTo(0,0);
+});
+
+$("logout-btn").addEventListener("click",()=>{
+  $("dash-view").classList.add("hidden");
+  $("login-view").classList.remove("hidden");
+  $("nav-name").classList.add("hidden");
+  $("logout-btn").classList.add("hidden");
+  $("back-link").classList.remove("hidden");
+  $("login-form").reset();
+});
+
+/* ── Printable statement ───────────────────────────── */
+$("print-btn").addEventListener("click",()=>{
+  const rows=DEMO.payments.map(p=>`<tr><td>${p.date}</td><td>${p.method}${p.note?` (${p.note})`:''}</td><td style="text-align:right">${p.amount}</td><td style="text-align:right">${p.balance}</td></tr>`).join('');
+  const html=`<!doctype html><html><head><title>Statement — ${DEMO.name}</title>
+<style>body{font-family:Arial,sans-serif;color:#2B3A55;padding:40px;max-width:720px;margin:auto}
+h1{font-family:Georgia,serif;color:#0C2858;margin:0 0 2px}.m{color:#546480;font-size:13px}
+table{width:100%;border-collapse:collapse;margin-top:24px;font-size:14px}
+th{text-align:left;border-bottom:2px solid #0C2858;padding:8px 6px;color:#0C2858;text-transform:uppercase;letter-spacing:.08em;font-size:11px}
+td{padding:9px 6px;border-bottom:1px solid #DDE8F6}
+.hd{display:flex;justify-content:space-between;border-bottom:1px solid #DDE8F6;padding-bottom:16px}
+.br{font-family:Georgia,serif;font-size:22px;color:#0C2858;font-weight:600}</style></head>
+<body><div class="hd"><div><div class="br">Fleetexpress.</div><div class="m">Petrol &amp; hybrid private hire · Derby</div></div>
+<div style="text-align:right" class="m">Statement generated<br>${new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}</div></div>
+<h1>${DEMO.name}</h1><div class="m">Driver ref ${DEMO.ref} · ${DEMO.vehicle}</div>
+<table><thead><tr><th>Date</th><th>Method</th><th style="text-align:right">Amount</th><th style="text-align:right">Balance</th></tr></thead>
+<tbody>${rows}</tbody></table>
+<p class="m" style="margin-top:28px">Outstanding: <strong style="color:#0C2858">£0.00</strong>. Preview statement — sample data only.</p>
+</body></html>`;
+  const w=window.open('','_blank','width=820,height=920');
+  if(!w){alert('Allow pop-ups to print your statement.');return;}
+  w.document.write(html);w.document.close();w.focus();setTimeout(()=>w.print(),300);
+});
+</script>
+</body>
+</html>

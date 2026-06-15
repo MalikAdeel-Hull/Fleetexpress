@@ -473,17 +473,16 @@ ul{list-style:none}
         </ul>
       </div>
       <div class="portal-form-card">
-        <h3 style="font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);font-weight:600;margin-bottom:.5rem">Sign in or register</h3>
-        <p style="color:var(--muted);font-size:.9375rem;line-height:1.6;margin-bottom:1.5rem">Log in with the phone number or National Insurance number the office has on file. The portal opens in its own window.</p>
-        <!-- Opens the Flask driver portal in a separate popup window (see the
-             openPortal() launcher below). Change the base in the PORTAL_BASE
-             constant (e.g. to https://portal.fleetexpress.co.uk/). target=_blank
-             + the href are the no-JS / popup-blocked fallback. -->
-        <a class="btn-full" id="portal-signin-link" href="/portal/login" target="_blank" rel="noopener"
+        <h3 style="font-family:var(--font-serif);font-size:1.5rem;color:var(--navy);font-weight:600;margin-bottom:.5rem">See the portal</h3>
+        <p style="color:var(--muted);font-size:.9375rem;line-height:1.6;margin-bottom:1.5rem">Open a live preview of the driver portal with sample data — sign in, view the dashboard and print a statement, exactly as a driver would. It opens in its own window.</p>
+        <!-- Opens the static demo portal (portal/index.html): login -> dashboard
+             with sample data, pure HTML/JS, so it works on GitHub Pages with no
+             server. The real, data-driven portal is the Flask app in
+             /driver_portal, for a proper live deployment later. target=_blank +
+             the href are the no-JS / popup-blocked fallback. -->
+        <a class="btn-full" id="portal-signin-link" href="portal/index.html" target="_blank" rel="noopener"
            style="display:flex;align-items:center;justify-content:center;text-decoration:none">Open the Driver Portal</a>
-        <p class="form-note">Opens in a separate window. First time here?
-          <a id="portal-register-link" href="/portal/register" target="_blank" rel="noopener" style="color:var(--royal);font-weight:600">Register your account →</a>
-        </p>
+        <p class="form-note">Opens in a separate window &middot; sample-data preview</p>
       </div>
     </div>
   </div>
@@ -612,13 +611,13 @@ const FAQ=[
   {q:"Can I see my payment history?",a:"Yes — the Driver Portal lets you view and print your full payment history and statements. Sign in with the phone number or National Insurance number we have on file."},
 ];
 
-/* ── Driver portal base URL ───────────────────────────
-   This site is served by the same Flask app that runs the driver portal
-   (driver_portal/app.py), so the portal lives at the site root: /login,
-   /register, /dashboard. "/" therefore points the buttons at the right place.
-   IMPORTANT: this only works when opened via the server (http://localhost:5000
-   or your real domain) — NOT by double-clicking index.html (file://). */
-const PORTAL_BASE="/";
+/* ── Driver portal preview URL ─────────────────────────
+   The "Open the Driver Portal" button opens this static demo page (login →
+   dashboard with sample data). It's pure HTML/JS, so it works on GitHub Pages
+   with no server. The real, data-driven portal is the Flask app in
+   /driver_portal — deploy that to a Python host when you go live, then point
+   this at the running portal instead. */
+const PORTAL_DEMO="portal/index.html";
 
 /* ── Marquee ──────────────────────────────────────── */
 (()=>{
@@ -704,27 +703,21 @@ document.getElementById('handled').innerHTML=HANDLED.map((h,i)=>`
 })();
 
 /* ── Portal launcher ──────────────────────────────────
-   Open the Flask driver portal in its OWN window — login → dashboard all happen
-   in that separate window, leaving this site untouched. Falls back to a normal
-   new tab if the popup is blocked, or to the link's href if JS is off. The base
-   comes from the single PORTAL_BASE constant above. */
+   Open the driver-portal preview in its OWN window, leaving this site untouched.
+   Falls back to a normal new tab if the popup is blocked, or to the link's href
+   if JS is off. URL comes from the PORTAL_DEMO constant above. */
 (()=>{
-  const base=PORTAL_BASE.endsWith('/')?PORTAL_BASE:PORTAL_BASE+'/';
-  function openPortal(path){
-    const url=base+path;
+  function openPortal(){
     const w=1040,h=840;
     const left=Math.max(0,((screen.width||1200)-w)/2);
     const top=Math.max(0,((screen.height||900)-h)/2);
-    // A named window means clicking sign-in then register reuses one window.
-    const win=window.open(url,'fleetexpressPortal',
+    const win=window.open(PORTAL_DEMO,'fleetexpressPortal',
       `width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes`);
-    if(win){win.focus();}else{window.open(url,'_blank','noopener');} // popup blocked
+    if(win){win.focus();}else{window.open(PORTAL_DEMO,'_blank','noopener');} // popup blocked
     return false; // cancel the same-tab navigation
   }
   const signin=document.getElementById('portal-signin-link');
-  const reg=document.getElementById('portal-register-link');
-  if(signin){signin.href=base+'login';signin.onclick=()=>openPortal('login');}
-  if(reg){reg.href=base+'register';reg.onclick=()=>openPortal('register');}
+  if(signin){signin.href=PORTAL_DEMO;signin.onclick=openPortal;}
 })();
 
 /* ── Contact form ─────────────────────────────────── */
